@@ -1,0 +1,9 @@
+# Runtime data (created by prepara_dati.py / tests)
+dati/
+percorso_dati.txt
+# Build output
+build/
+dist/
+*.exe
+__pycache__/
+~$*

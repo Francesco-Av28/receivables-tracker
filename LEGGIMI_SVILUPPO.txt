@@ -1,0 +1,21 @@
+SCADENZIARIO - sorgenti per modificare e ricompilare
+====================================================
+Requisiti: Python 3.12+, poi:  pip install -r requisiti.txt pyinstaller
+
+File
+- app.py (rotte Flask), motore.py (Excel, PDF, pagamenti, timbri), pagine.py (template HTML)
+- risorse\  font Montserrat + modello_vuoto.xlsx (Excel senza clienti usato al primo avvio)
+- SCADENZIARIO.spec   configurazione PyInstaller
+- prepara_dati.py     crea una cartella dati vuota:  python prepara_dati.py [cartella]
+- _test_app.py        collaudo automatico (157 controlli, usa dati finti in .\dati):  python _test_app.py
+- _prepara_dati_test.py  dati finti per il collaudo
+- crea_modello_vuoto.py  rigenera risorse\modello_vuoto.xlsx da un Excel dell'app
+- _genera_guida.js    rigenera la guida Word (npm install docx; node _genera_guida.js;
+                      output in docs)
+
+Ricompilare l'exe
+    python -m PyInstaller --noconfirm --clean SCADENZIARIO.spec
+Risultato in dist\SCADENZIARIO (NON copiare una cartella "dati" di prova nel pacchetto).
+
+Configurazione (dati\config.json): "porta" (default 8770), "studio" (dati Impostazioni),
+"piva_studio"/"cf_studio" (per distinguere lo studio dal cliente nei PDF).
